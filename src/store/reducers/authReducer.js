@@ -21,6 +21,19 @@ const setUser = (state, action) => {
   });
 };
 
+const setUserLikes = (state, action) => {
+  let liked = state?.likes;
+  if (liked.find((l) => l === action?.payload)) {
+    liked = liked?.filter((l) => l !== action.payload);
+  } else {
+    liked = [...liked, action.payload];
+  }
+  set("likes", liked);
+  return updateState(state, {
+    likes: liked,
+  });
+};
+
 const logout = (state, action) => {
   remove("likes");
   remove("user");
@@ -34,7 +47,8 @@ const AuthReducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.SET_USER:
       return setUser(state, action);
-
+    case actions.SET_USER_LIKES:
+      return setUserLikes(state, action);
     case actions.LOGOUT:
       return logout(state, action);
 
