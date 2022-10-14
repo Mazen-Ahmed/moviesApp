@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkmoviesapp=self.webpackChunkmoviesapp||[]).push([[571],{6571:function(n,u,e){e.r(u),e.d(u,{default:function(){return o}});e(2791);var r=e(7689),i=e(9434),t=e(184),o=function(n){return function(){var u;return(null===(u=(0,i.v9)((function(n){return null===n||void 0===n?void 0:n.AuthReducer})))||void 0===u?void 0:u.user)?(0,t.jsx)(n,{}):(0,t.jsx)(r.Fg,{to:"/login"})}}((function(){return(0,t.jsx)("div",{children:"Home"})}))}}]);
-//# sourceMappingURL=571.b888e1ba.chunk.js.map
