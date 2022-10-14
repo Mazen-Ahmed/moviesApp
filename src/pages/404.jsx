@@ -16,7 +16,10 @@ const NotFound = () => {
     >
       <Typography variant="h4">404 not found</Typography>
       <Typography variant="h6">
-        <Link to="/" style={{ textDecoration: "underline", color: "#000" }}>
+        <Link
+          to="/moviesApp"
+          style={{ textDecoration: "underline", color: "#000" }}
+        >
           Back To Home
         </Link>
       </Typography>

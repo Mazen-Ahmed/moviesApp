@@ -70,7 +70,7 @@ const MovieCard = ({ data, refer = null }) => {
                   if (userData?.user) {
                     dispatch(setUserLikesAction(data?.id));
                   } else {
-                    navigate("/");
+                    navigate("/moviesApp");
                   }
                 }}
               >

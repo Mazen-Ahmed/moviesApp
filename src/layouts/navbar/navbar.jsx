@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <Box sx={navbarStyles}>
       <Container maxWidth="lg" sx={containerStyles}>
-        <Link to="/" style={{ textDecoration: "none", color: "#000" }}>
+        <Link to="/moviesApp" style={{ textDecoration: "none", color: "#000" }}>
           <Typography sx={{ display: "flex", fontSize: { xs: 18, md: 30 } }}>
             <LiveTvIcon sx={{ fontSize: { xs: 23, md: 35 } }} />
             Movies App

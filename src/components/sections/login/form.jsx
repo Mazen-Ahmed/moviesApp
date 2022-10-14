@@ -22,10 +22,10 @@ const Form = () => {
     set("user", formState.values?.username);
     set("likes", []);
     dispatch(setUserAction(formState.values?.username));
-    navigate("/");
+    navigate("/moviesApp");
   };
   useEffect(() => {
-    if (user) return navigate("/");
+    if (user) return navigate("/moviesApp");
   }, []);
   return (
     <Box sx={formContainer}>
