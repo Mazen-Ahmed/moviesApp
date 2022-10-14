@@ -6,8 +6,9 @@ export const formContainer = () => ({
   justifyContent: "center",
 });
 
-export const formBody = () => ({
-  background: "#fff",
+export const formBody = (bg,textColor) => ({
+  background: bg,
+  color:textColor,
   borderRadius: 1,
   width: 400,
   padding: 7,

@@ -16,10 +16,12 @@ import {
   setTopRatedPageAction,
   setPopularPageAction,
 } from "store/actions/moviesActions";
+import { themes } from "helpers/useThemes";
 
 const HorizontalScroll = ({ type, loading, data }) => {
   const dispatch = useDispatch();
   const moviesReducer = useSelector((state) => state.MoviesReducer);
+  const authData = useSelector((state) => state.AuthReducer);
   const totalCount =
     type === "top_rated"
       ? moviesReducer.topRatedCount
@@ -57,12 +59,15 @@ const HorizontalScroll = ({ type, loading, data }) => {
     [loading, hasMore]
   );
   return (
-    <Box sx={mainContainer}>
-      <Box onClick={() => handleSlide("left")} sx={slideButtons("left")}>
+    <Box sx={mainContainer(themes[authData.theme].childrenBackgrounds)}>
+      <Box
+        onClick={() => handleSlide("left")}
+        sx={slideButtons("left", themes[authData.theme].background)}
+      >
         <ArrowBackIosNewIcon />
       </Box>
 
-      <Box sx={sliderContainer}>
+      <Box sx={sliderContainer(themes[authData.theme].shadow)}>
         <Box ref={myRef} sx={sliderStyles}>
           {data &&
             data.map((movie, index) => {
@@ -76,7 +81,10 @@ const HorizontalScroll = ({ type, loading, data }) => {
             })}
         </Box>
       </Box>
-      <Box sx={slideButtons("right")} onClick={() => handleSlide("right")}>
+      <Box
+        sx={slideButtons("right", themes[authData.theme].background)}
+        onClick={() => handleSlide("right")}
+      >
         {loading ? (
           <Loader primaryColor="#000" customSize={25} />
         ) : (

@@ -16,23 +16,34 @@ import {
   logoutMenu,
   dropDown,
 } from "./navbar.styles";
-import { useDispatch } from "react-redux";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import { logout } from "store/actions/authActions";
+import { logout, setUserTheme } from "store/actions/authActions";
 import SearchInput from "components/shared/searchInput/search";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
+import { themes } from "helpers/useThemes";
 
 const Navbar = () => {
-  const user = useSelector((state) => state?.AuthReducer)?.user;
+  const authData = useSelector((state) => state?.AuthReducer);
   const [opened, setOpened] = useState(false);
   const dispatch = useDispatch();
   return (
-    <Box sx={navbarStyles}>
+    <Box
+      sx={navbarStyles(
+        themes[authData?.theme]?.background,
+        themes[authData?.theme]?.textColor
+      )}
+    >
       <Container maxWidth="lg" sx={containerStyles}>
-        <Link to="/moviesApp" style={{ textDecoration: "none", color: "#000" }}>
+        <Link
+          to="/moviesApp"
+          style={{
+            textDecoration: "none",
+            color: themes[authData.theme].textColor,
+          }}
+        >
           <Typography sx={{ display: "flex", fontSize: { xs: 18, md: 30 } }}>
             <LiveTvIcon sx={{ fontSize: { xs: 23, md: 35 } }} />
             Movies App
@@ -49,21 +60,23 @@ const Navbar = () => {
             justifyContent: "space-between",
           }}
         >
-          {true ? (
+          {authData.theme === "dark" ? (
             <Tooltip title="Light Mode">
-              <IconButton>
-                <LightModeIcon sx={{ color: "" }} />
+              <IconButton onClick={() => dispatch(setUserTheme("light"))}>
+                <LightModeIcon
+                  sx={{ color: themes[authData?.theme]?.textColor }}
+                />
               </IconButton>
             </Tooltip>
           ) : (
             <Tooltip title="Dark Mode">
-              <IconButton>
+              <IconButton onClick={() => dispatch(setUserTheme("dark"))}>
                 <DarkModeIcon />
               </IconButton>
             </Tooltip>
           )}
 
-          {user ? (
+          {authData?.user ? (
             <Typography
               variant="body1"
               sx={dropDown}
@@ -71,7 +84,7 @@ const Navbar = () => {
             >
               Hello,
               <span style={{ opacity: 0.7, display: "flex" }}>
-                {user}
+                {authData?.user}
                 <ArrowDropDownIcon
                   sx={{
                     transition: "ease-in-out .2s",
@@ -79,9 +92,9 @@ const Navbar = () => {
                   }}
                 />
               </span>
-              <Slide direction="up" in={opened && user}>
+              <Slide direction="up" in={opened && authData?.user}>
                 <Typography
-                  sx={logoutMenu}
+                  sx={logoutMenu(themes[authData.theme].childrenBackgrounds)}
                   onClick={(e) => {
                     e.stopPropagation();
                     dispatch(logout());
@@ -101,7 +114,7 @@ const Navbar = () => {
                 alignItems: "center",
                 gap: 0.5,
                 textDecoration: "none",
-                color: "#000",
+                color: themes[authData?.theme]?.textColor,
               }}
             >
               <LoginIcon />

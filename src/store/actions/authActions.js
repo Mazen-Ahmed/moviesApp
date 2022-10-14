@@ -1,5 +1,6 @@
 export const SET_USER = "setUser";
 export const SET_USER_LIKES = "setUserLikes";
+export const SET_USER_THEME = "setUserTheme";
 export const LOGOUT = "Logout";
 
 export const setUser = (payload) => {
@@ -20,15 +21,9 @@ export const logout = () => {
     type: LOGOUT,
   };
 };
-
-export const setUserAction = (data) => {
-  return (dispatch) => {
-    dispatch(setUser(data));
-  };
-};
-
-export const setUserLikesAction = (data) => {
-  return (dispatch) => {
-    dispatch(setUserLikes(data));
+export const setUserTheme = (payload) => {
+  return {
+    type: SET_USER_THEME,
+    payload,
   };
 };

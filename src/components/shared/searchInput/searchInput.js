@@ -1,11 +1,12 @@
-export const formControl = (focus) => ({
+export const formControl = (focus, bg) => ({
   m: 1,
   width: focus ? "40%" : "20%",
   transition: "ease-in-out .2s",
-  background: "rgba(223, 230, 233,.3)",
+  background: bg,
 });
-export const input = () => ({
+export const input = (textColor) => ({
   "&:focus-within fieldset, &:focus-visible fieldset": {
     border: "1px solid #00cec9!important",
   },
+  color: textColor,
 });

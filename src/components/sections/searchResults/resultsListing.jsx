@@ -14,8 +14,8 @@ const ResultsListing = () => {
         <CardsLoader count={20} />
       ) : (
         <>
-          {searchResults?.map((movie) => (
-            <Grid xs={12} md={6} lg={4} item>
+          {searchResults?.map((movie, idx) => (
+            <Grid xs={12} md={6} lg={4} key={idx} item>
               <MovieCard data={movie} />
             </Grid>
           ))}

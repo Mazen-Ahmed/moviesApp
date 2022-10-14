@@ -8,6 +8,8 @@ import {
   FormHelperText,
 } from "@mui/material";
 import { input } from "./customInput.styles";
+import { themes } from "helpers/useThemes";
+import { useSelector } from "react-redux";
 
 const CustomInput = ({
   label,
@@ -20,38 +22,46 @@ const CustomInput = ({
   errorMessage,
   ...rest
 }) => {
+  const { theme } = useSelector((state) => state.AuthReducer);
   return (
-    <FormControl
-      sx={{ mb: 2, width: "100%" }}
-      variant="outlined"
-      error={!!error}
-    >
-      <InputLabel style={{ color: "#00cec9 !important" }} htmlFor={label}>
-        {label}
-      </InputLabel>
-      <OutlinedInput
-        sx={input(!!error)}
-        id={label}
-        autoComplete="new-password"
-        type={type}
-        value={value}
-        endAdornment={
-          <InputAdornment position="end">
-            <IconButton
-              onMouseDown={onIconeKeyDown}
-              onMouseUp={onIconeKeyUp}
-              aria-label="toggle password visibility"
-              edge="end"
-            >
-              {Icon}
-            </IconButton>
-          </InputAdornment>
-        }
-        label={label}
-        {...rest}
-      />
-      {error && <FormHelperText error>{errorMessage}</FormHelperText>}
-    </FormControl>
+    <>
+      <FormControl
+        sx={{
+          mb: !!!error && 2,
+          width: "100%",
+          background: themes[theme].inputs,
+        }}
+        variant="outlined"
+        error={!!error}
+      >
+        <OutlinedInput
+          sx={input(!!error)}
+          id={label}
+          autoComplete="new-password"
+          type={type}
+          value={value}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                onMouseDown={onIconeKeyDown}
+                onMouseUp={onIconeKeyUp}
+                aria-label="toggle password visibility"
+                edge="end"
+              >
+                {Icon}
+              </IconButton>
+            </InputAdornment>
+          }
+          placeholder={label}
+          {...rest}
+        />
+      </FormControl>
+      {error && (
+        <FormHelperText sx={{ marginBottom: 2 }} error>
+          {errorMessage}
+        </FormHelperText>
+      )}
+    </>
   );
 };
 

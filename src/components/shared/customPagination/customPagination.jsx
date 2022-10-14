@@ -1,12 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Pagination } from "@mui/material";
 import { setSearchResultsPageAction } from "store/actions/moviesActions";
+import { themes } from "helpers/useThemes";
+import { pagination } from "./customPagination.styles";
 
 const CustomPagination = () => {
   const dispacth = useDispatch();
   const { searchCount, searchPage } = useSelector(
     (state) => state.MoviesReducer
   );
+  const { theme } = useSelector((state) => state.AuthReducer);
   const handlePageChange = (event, page) => {
     dispacth(setSearchResultsPageAction(page));
   };
@@ -19,6 +22,7 @@ const CustomPagination = () => {
       variant="outlined"
       color="success"
       page={searchPage}
+      sx={pagination(themes[theme].background, themes[theme].textColor)}
     />
   );
 };

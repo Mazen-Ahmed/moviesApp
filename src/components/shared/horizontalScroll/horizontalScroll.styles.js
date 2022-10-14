@@ -1,18 +1,18 @@
-export const mainContainer = () => ({
+export const mainContainer = (bg) => ({
   position: "relative",
   maxWidth: "100%",
-  background: "#fff",
+  background: bg,
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
 });
 
-export const slideButtons = (dir) => ({
+export const slideButtons = (dir, bg) => ({
   position: "absolute",
   top: "50%",
   right: dir === "right" && 0,
   left: dir === "left" && 0,
-  background: "#000",
+  background: bg,
   color: "#fff",
   borderRadius: "50%",
   padding: 1,
@@ -27,7 +27,7 @@ export const slideButtons = (dir) => ({
   },
 });
 
-export const sliderContainer = () => ({
+export const sliderContainer = (shadow) => ({
   width: "100%",
   minHeight: 300,
   position: "relative",
@@ -39,8 +39,7 @@ export const sliderContainer = () => ({
     zIndex: 99,
     height: "100%",
     width: { xs: 20, md: 100 },
-    backgroundImage:
-      "linear-gradient(90deg,rgba(223, 230, 233,.9), transparent)",
+    backgroundImage: `linear-gradient(90deg,${shadow}, transparent)`,
   },
   "&::after": {
     position: "absolute",
@@ -50,8 +49,7 @@ export const sliderContainer = () => ({
     zIndex: 99,
     height: "100%",
     width: { xs: 20, md: 100 },
-    backgroundImage:
-      "linear-gradient(-90deg,rgba(223, 230, 233,.9), transparent)",
+    backgroundImage: `linear-gradient(-90deg,${shadow}, transparent)`,
   },
 });
 

@@ -16,7 +16,7 @@ export const imageContainer = () => ({
   transition: "ease-in-out .3s",
 });
 
-export const shadowBox = {
+export const shadowBox = () => ({
   transformOrigin: "bottom",
   transition: "ease-in-out .3s",
   position: "absolute",
@@ -32,7 +32,7 @@ export const shadowBox = {
   justifyContent: "start",
   color: "#ffff",
   cursor: "pointer",
-};
+});
 
 export const iconsContainer = () => ({
   display: "flex",
@@ -41,9 +41,10 @@ export const iconsContainer = () => ({
   width: "100%",
 });
 
-export const textContainer = () => ({
+export const textContainer = (textColor) => ({
   display: "flex",
   alignItems: "center",
+  color: textColor,
   justifyContent: "start",
   width: "100%",
   height: "auto",

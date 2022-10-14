@@ -11,7 +11,7 @@ const updateState = (oldState, newState) => {
 const initialState = {
   user: get("user") || null,
   likes: get("likes") || [],
-  theme: 1,
+  theme: get("theme") || "light",
 };
 
 const setUser = (state, action) => {
@@ -43,6 +43,13 @@ const logout = (state, action) => {
   });
 };
 
+const setTheme = (state, action) => {
+  set("theme", action.payload);
+  return updateState(state, {
+    theme: action.payload,
+  });
+};
+
 const AuthReducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.SET_USER:
@@ -51,6 +58,8 @@ const AuthReducer = (state = initialState, action) => {
       return setUserLikes(state, action);
     case actions.LOGOUT:
       return logout(state, action);
+    case actions.SET_USER_THEME:
+      return setTheme(state, action);
 
     default:
       return state;

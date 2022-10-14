@@ -7,29 +7,35 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import CustomInput from "components/shared/customInput/customInput";
 import CustomButton from "components/shared/customButton/customButton";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserAction } from "store/actions/authActions";
+import { setUser } from "store/actions/authActions";
 import { handleChange, buttonDisabled } from "./_hooks/useHandleChange";
 import { set } from "helpers/useSessions";
 import { formBody, formContainer } from "./form.styles";
+import { themes } from "helpers/useThemes";
 
 const Form = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state?.AuthReducer)?.user;
+  const authData = useSelector((state) => state?.AuthReducer);
   const [formState, setFormState] = useState({});
   const navigate = useNavigate();
   const handleSubmit = () => {
     set("user", formState.values?.username);
     set("likes", []);
-    dispatch(setUserAction(formState.values?.username));
+    dispatch(setUser(formState.values?.username));
     navigate("/moviesApp");
   };
   useEffect(() => {
-    if (user) return navigate("/moviesApp");
+    if (authData.user) return navigate("/moviesApp");
   }, []);
   return (
     <Box sx={formContainer}>
-      <Box sx={formBody}>
+      <Box
+        sx={formBody(
+          themes[authData.theme].childrenBackgrounds,
+          themes[authData.theme].textColor
+        )}
+      >
         <Typography textAlign={"center"} variant="h6">
           Login Form
         </Typography>

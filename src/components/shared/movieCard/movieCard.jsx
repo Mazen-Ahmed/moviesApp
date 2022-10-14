@@ -13,7 +13,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import useGetTitle from "helpers/useGetTitle";
 import Tooltip from "@mui/material/Tooltip";
 import BackdropComponent from "./backdrop/backdropComponent";
-import { setUserLikesAction } from "store/actions/authActions";
+import { setUserLikes } from "store/actions/authActions";
 import { useSelector, useDispatch } from "react-redux";
 import {
   headerContainer,
@@ -22,6 +22,7 @@ import {
   shadowBox,
   textContainer,
 } from "./movieCard.styles";
+import { themes } from "helpers/useThemes";
 
 const MovieCard = ({ data, refer = null }) => {
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ const MovieCard = ({ data, refer = null }) => {
         sx={{
           minWidth: 300,
           marginInline: 1,
+          background: themes[userData.theme].background,
           userSelect: "none",
           boxShadow:
             " rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
@@ -68,7 +70,7 @@ const MovieCard = ({ data, refer = null }) => {
                 onClick={(e) => {
                   e.stopPropagation();
                   if (userData?.user) {
-                    dispatch(setUserLikesAction(data?.id));
+                    dispatch(setUserLikes(data?.id));
                   } else {
                     navigate("/moviesApp");
                   }
@@ -91,14 +93,20 @@ const MovieCard = ({ data, refer = null }) => {
         <CardContent>
           <Tooltip title={data?.title}>
             <Typography
-              sx={{ fontWeight: "bold", cursor: "pointer" }}
+              sx={{
+                fontWeight: "bold",
+                cursor: "pointer",
+                color: themes[userData.theme].textColor,
+              }}
               variant="body1"
-              color="text.primary"
             >
               {useGetTitle(data?.title, 25)}
             </Typography>
           </Tooltip>
-          <Typography variant="body2">
+          <Typography
+            variant="body2"
+            sx={{ color: themes[userData.theme].textColor }}
+          >
             released: <span style={{ opacity: 0.7 }}>{data?.release_date}</span>
           </Typography>
         </CardContent>
@@ -111,7 +119,11 @@ const MovieCard = ({ data, refer = null }) => {
             readOnly
           />
           <Typography
-            sx={{ opacity: 0.6, fontStyle: "italic" }}
+            sx={{
+              opacity: 0.6,
+              fontStyle: "italic",
+              color: themes[userData.theme].textColor,
+            }}
             variant="body2"
           >
             ({data?.vote_count})
