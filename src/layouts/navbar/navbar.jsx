@@ -22,6 +22,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { logout } from "store/actions/authActions";
 import { useSelector } from "react-redux";
+import LiveTvIcon from "@mui/icons-material/LiveTv";
 
 const Navbar = () => {
   const user = useSelector((state) => state?.AuthReducer)?.user;
@@ -30,13 +31,18 @@ const Navbar = () => {
   return (
     <Box sx={navbarStyles}>
       <Container maxWidth="lg" sx={containerStyles}>
-        <Typography variant="h4">IMDB</Typography>
+        <Link to="/" style={{ textDecoration: "none", color: "#000" }}>
+          <Typography sx={{ display: "flex", fontSize: { xs: 18, md: 30 } }}>
+            <LiveTvIcon sx={{ fontSize: { xs: 23, md: 35 } }} />
+            Movies App
+          </Typography>
+        </Link>
 
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
-            gap: 2,
+            gap: 1,
             justifyContent: "space-between",
           }}
         >
