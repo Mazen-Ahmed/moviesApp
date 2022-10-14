@@ -6,7 +6,7 @@ const WithAuthentication = (Component) => {
   return function ComponentWithAuth() {
     const user = useSelector((state) => state?.AuthReducer)?.user;
     if (!user) {
-      return <Navigate to="/login" />;
+      return <Navigate to="/moviesApp/login" />;
     } else {
       return <Component />;
     }

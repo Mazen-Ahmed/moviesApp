@@ -21,6 +21,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { logout } from "store/actions/authActions";
+import SearchInput from "components/shared/searchInput/search";
 import { useSelector } from "react-redux";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 
@@ -37,6 +38,8 @@ const Navbar = () => {
             Movies App
           </Typography>
         </Link>
+
+        <SearchInput />
 
         <Box
           sx={{
@@ -91,7 +94,7 @@ const Navbar = () => {
             </Typography>
           ) : (
             <Link
-              to="/login"
+              to="/moviesApp/login"
               variant="body1"
               style={{
                 display: "flex",
