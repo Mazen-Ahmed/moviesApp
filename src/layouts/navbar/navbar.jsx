@@ -1,7 +1,108 @@
-import React from "react";
+import {
+  Box,
+  Typography,
+  Container,
+  Slide,
+  IconButton,
+  Tooltip,
+} from "@mui/material";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import {
+  navbarStyles,
+  containerStyles,
+  logoutMenu,
+  dropDown,
+} from "./navbar.styles";
+import { useDispatch } from "react-redux";
+import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { logout } from "store/actions/authActions";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  return <div>Navbar</div>;
+  const user = useSelector((state) => state?.AuthReducer)?.user;
+  const [opened, setOpened] = useState(false);
+  const dispatch = useDispatch();
+  return (
+    <Box sx={navbarStyles}>
+      <Container maxWidth="lg" sx={containerStyles}>
+        <Typography variant="h4">IMDB</Typography>
+
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 2,
+            justifyContent: "space-between",
+          }}
+        >
+          {true ? (
+            <Tooltip title="Light Mode">
+              <IconButton>
+                <LightModeIcon sx={{ color: "" }} />
+              </IconButton>
+            </Tooltip>
+          ) : (
+            <Tooltip title="Dark Mode">
+              <IconButton>
+                <DarkModeIcon />
+              </IconButton>
+            </Tooltip>
+          )}
+
+          {user ? (
+            <Typography
+              variant="body1"
+              sx={dropDown}
+              onClick={() => setOpened((prev) => !prev)}
+            >
+              Hello,
+              <span style={{ opacity: 0.7, display: "flex" }}>
+                {user}
+                <ArrowDropDownIcon
+                  sx={{
+                    transition: "ease-in-out .2s",
+                    transform: opened && "rotate(180deg)",
+                  }}
+                />
+              </span>
+              <Slide direction="up" in={opened && user}>
+                <Typography
+                  sx={logoutMenu}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    dispatch(logout());
+                  }}
+                >
+                  <LogoutIcon />
+                  Logout
+                </Typography>
+              </Slide>
+            </Typography>
+          ) : (
+            <Link
+              to="/login"
+              variant="body1"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 0.5,
+                textDecoration: "none",
+                color: "#000",
+              }}
+            >
+              <LoginIcon />
+              Login
+            </Link>
+          )}
+        </Box>
+      </Container>
+    </Box>
+  );
 };
 
 export default Navbar;
