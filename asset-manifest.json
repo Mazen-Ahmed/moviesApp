@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/moviesApp/static/css/main.8ddcedd1.css",
-    "main.js": "/moviesApp/static/js/main.1d334b40.js",
-    "static/js/969.9f763e34.chunk.js": "/moviesApp/static/js/969.9f763e34.chunk.js",
-    "static/js/282.3f7e1514.chunk.js": "/moviesApp/static/js/282.3f7e1514.chunk.js",
-    "static/js/167.af0c4109.chunk.js": "/moviesApp/static/js/167.af0c4109.chunk.js",
+    "main.js": "/moviesApp/static/js/main.1377aa71.js",
+    "static/js/969.c49fcc1b.chunk.js": "/moviesApp/static/js/969.c49fcc1b.chunk.js",
+    "static/js/282.9122e830.chunk.js": "/moviesApp/static/js/282.9122e830.chunk.js",
+    "static/js/167.187f9dd9.chunk.js": "/moviesApp/static/js/167.187f9dd9.chunk.js",
     "static/js/255.f3640476.chunk.js": "/moviesApp/static/js/255.f3640476.chunk.js",
-    "static/js/626.42a01568.chunk.js": "/moviesApp/static/js/626.42a01568.chunk.js",
+    "static/js/808.e0ba9056.chunk.js": "/moviesApp/static/js/808.e0ba9056.chunk.js",
     "static/js/630.c7fba8a4.chunk.js": "/moviesApp/static/js/630.c7fba8a4.chunk.js",
     "static/js/402.1c93b122.chunk.js": "/moviesApp/static/js/402.1c93b122.chunk.js",
     "index.html": "/moviesApp/index.html",
     "main.8ddcedd1.css.map": "/moviesApp/static/css/main.8ddcedd1.css.map",
-    "main.1d334b40.js.map": "/moviesApp/static/js/main.1d334b40.js.map",
-    "969.9f763e34.chunk.js.map": "/moviesApp/static/js/969.9f763e34.chunk.js.map",
-    "282.3f7e1514.chunk.js.map": "/moviesApp/static/js/282.3f7e1514.chunk.js.map",
-    "167.af0c4109.chunk.js.map": "/moviesApp/static/js/167.af0c4109.chunk.js.map",
+    "main.1377aa71.js.map": "/moviesApp/static/js/main.1377aa71.js.map",
+    "969.c49fcc1b.chunk.js.map": "/moviesApp/static/js/969.c49fcc1b.chunk.js.map",
+    "282.9122e830.chunk.js.map": "/moviesApp/static/js/282.9122e830.chunk.js.map",
+    "167.187f9dd9.chunk.js.map": "/moviesApp/static/js/167.187f9dd9.chunk.js.map",
     "255.f3640476.chunk.js.map": "/moviesApp/static/js/255.f3640476.chunk.js.map",
-    "626.42a01568.chunk.js.map": "/moviesApp/static/js/626.42a01568.chunk.js.map",
+    "808.e0ba9056.chunk.js.map": "/moviesApp/static/js/808.e0ba9056.chunk.js.map",
     "630.c7fba8a4.chunk.js.map": "/moviesApp/static/js/630.c7fba8a4.chunk.js.map",
     "402.1c93b122.chunk.js.map": "/moviesApp/static/js/402.1c93b122.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8ddcedd1.css",
-    "static/js/main.1d334b40.js"
+    "static/js/main.1377aa71.js"
   ]
 }
