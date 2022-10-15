@@ -1,4 +1,4 @@
-# Movie App 📺
+# Movies App 📺
 
 This is a movies explorer application that uses react and movieDB API
 
@@ -10,7 +10,7 @@ This is a movies explorer application that uses react and movieDB API
 - material UI
 - yup
 
-# Getting Started with installation Movie App ⚒️
+# Getting Started with installation of Movies App ⚒️
 
 ### in the root folder you will need to run the following commands
 
