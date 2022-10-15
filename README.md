@@ -4,11 +4,11 @@ This is a movies explorer application that uses react and movieDB API
 
 # Technologies 💻
 
-#### react.js
-
-#### material UI
-
-#### yup
+- react.js
+- redux
+- axios
+- material UI
+- yup
 
 # Getting Started with installation Movie App ⚒️
 
@@ -24,8 +24,8 @@ This is a movies explorer application that uses react and movieDB API
 - Scrollable list of top rated movies
 - Scrollable list of most popular movies
 - Ability of searching for movies
-- Login and add Movies to favorites
-- onClicking any movie thumbnail a popup apears with the trailer
+- Login and adding Movies to favorites
+- onClicking any movie thumbnail a popup appears with the trailer
 - Light/Dark themes
 
 # To-Do 💪
