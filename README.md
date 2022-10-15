@@ -31,3 +31,7 @@ This is a movies explorer application that uses react and movieDB API
 # To-Do 💪
 
 - Share movies to social media with OG protocol using SSR or pages pre-rendering
+
+# API reference 💪
+
+[Docs Link](https://www.themoviedb.org/documentation/api)

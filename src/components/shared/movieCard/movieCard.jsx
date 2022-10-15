@@ -53,7 +53,9 @@ const MovieCard = ({ data, refer = null }) => {
             component="img"
             sx={imageContainer}
             height="300"
-            image={`${process.env.REACT_APP_IMAGES_URL}${data.backdrop_path}`}
+            image={`${process.env.REACT_APP_IMAGES_URL}${
+              data.backdrop_path || data.poster_path
+            }`}
             alt={`${data?.title}'s image`}
           />
           <Box sx={shadowBox}>
