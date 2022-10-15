@@ -27,7 +27,7 @@ const CustomInput = ({
     <>
       <FormControl
         sx={{
-          mb: !!!error && 2,
+          marginBlock: !!!error && 3,
           width: "100%",
           background: themes[theme].inputs,
         }}

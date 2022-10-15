@@ -36,3 +36,19 @@ export const dropDown = () => ({
   position: "relative",
   userSelect: "none",
 });
+
+export const searchContainer = () => ({
+  width: 600,
+  display: { xs: "none", md: "flex" },
+  alignItems: "center",
+  justifyContent: "center",
+});
+
+export const responsiveNavbar = (bg) => ({
+  width: "100%",
+  minHeight: 100,
+  background: bg,
+  display: { xs: "flex", md: "none" },
+  alignItems: "center",
+  justifyContent: "center",
+});

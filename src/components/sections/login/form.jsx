@@ -65,7 +65,7 @@ const Form = () => {
           text={"Login"}
           type="contained"
           color={"#00cec9"}
-          styles={{ width: "100%" }}
+          styles={{ width: "100%", marginTop: 4 }}
           onClick={handleSubmit}
           disabled={buttonDisabled(formState)}
         />

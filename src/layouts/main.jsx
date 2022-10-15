@@ -10,7 +10,7 @@ const Main = ({ children }) => {
     <Box
       sx={{
         background: themes[theme].background,
-        minHeight: 700,
+        minHeight: "100vh",
         paddingBottom: 10,
       }}
     >

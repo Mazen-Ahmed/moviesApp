@@ -1,6 +1,6 @@
 export const formControl = (focus, bg) => ({
   m: 1,
-  width: focus ? "40%" : "20%",
+  width: { xs: focus ? "80%" : "60%", md: focus ? "60%" : "40%" },
   transition: "ease-in-out .2s",
   background: bg,
 });

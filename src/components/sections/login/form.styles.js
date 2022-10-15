@@ -6,11 +6,12 @@ export const formContainer = () => ({
   justifyContent: "center",
 });
 
-export const formBody = (bg,textColor) => ({
+export const formBody = (bg, textColor) => ({
   background: bg,
-  color:textColor,
+  color: textColor,
   borderRadius: 1,
-  width: 400,
+  width: 600,
+  height: 300,
   padding: 7,
   boxShadow:
     " rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",

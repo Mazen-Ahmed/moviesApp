@@ -6,7 +6,6 @@ import {
   setSearchKeywordAction,
   setSearchResultsAction,
   setSearchResultsCountAction,
-  setSearchResultsPageAction,
   setSearchResultsStartAction,
 } from "store/actions/moviesActions";
 import {

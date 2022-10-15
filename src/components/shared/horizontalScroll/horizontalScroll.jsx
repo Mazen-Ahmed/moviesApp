@@ -38,9 +38,9 @@ const HorizontalScroll = ({ type, loading, data }) => {
   const myRef = useRef(null);
   const handleSlide = (dir) => {
     if (dir === "right") {
-      myRef.current.scrollLeft += 1000;
+      myRef.current.scrollLeft += 350;
     } else {
-      myRef.current.scrollLeft += -1000;
+      myRef.current.scrollLeft += -350;
     }
   };
   const hasMore = !!(totalCount > data?.length);
