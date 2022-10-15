@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with Movie App 😍
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a movies application that uses react and MovieDB API
 
 ## Available Scripts
 
